@@ -16,7 +16,7 @@ To access protected endpoints as an ADMIN user, provide the appropriate authenti
 
 ## Database
 The project utilizes [H2](https://www.h2database.com/) as the database.
-
+ 
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request to the repository.
