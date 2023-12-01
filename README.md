@@ -1,5 +1,5 @@
 ## API Endpoints
-````markdown
+``` markdown
 POST /auth/login - Login into the App
 
 POST /auth/register - Register a new user into the App
