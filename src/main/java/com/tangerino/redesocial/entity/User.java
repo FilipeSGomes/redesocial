@@ -28,6 +28,12 @@ public class User implements UserDetails {
     private String password;
     private UserRole role;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> commentList;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> postList;
+
     public User(String login, String password, UserRole role){
         this.login = login;
         this.password = password;
