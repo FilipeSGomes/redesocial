@@ -5,6 +5,18 @@ POST /auth/login - Login into the App
 POST /auth/register - Register a new user into the App
 ```
 
+```agsl
+curl --location 'localhost:8080/auth/register' \
+--header 'Content-Type: application/json' \
+--data '{
+    "login": "filipesan7",
+    "password": "123",
+    "role": "ADMIN"
+}'
+```
+
+
+
 ## Authentication
 The API uses Spring Security for authentication control. The following roles are available:
 

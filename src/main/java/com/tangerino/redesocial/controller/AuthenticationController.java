@@ -1,6 +1,11 @@
 package com.tangerino.redesocial.controller;
+
 import com.tangerino.redesocial.dto.AuthenticationDTO;
-import com.tangerino.redesocial.repository.UserRepository;
+import com.tangerino.redesocial.dto.LoginResponseDTO;
+import com.tangerino.redesocial.dto.RegisterDTO;
+import com.tangerino.redesocial.entity.User;
+import com.tangerino.redesocial.services.TokenService;
+import com.tangerino.redesocial.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
-    private UserRepository repository;
+    private UserService userService;
+
     @Autowired
     private TokenService tokenService;
 
@@ -34,12 +41,12 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
-        if(this.repository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
+        if(this.userService.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
         User newUser = new User(data.login(), encryptedPassword, data.role());
 
-        this.repository.save(newUser);
+        this.userService.save(newUser);
 
         return ResponseEntity.ok().build();
     }
