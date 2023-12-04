@@ -6,6 +6,7 @@ import lombok.*;
 @Table(name = "photos")
 @Entity(name = "photos")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

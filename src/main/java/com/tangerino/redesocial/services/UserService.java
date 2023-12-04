@@ -34,6 +34,9 @@ public class UserService {
             return ((UserDetails) principal).getUsername();
         }
         return principal.toString();
+    }
 
+    public boolean validUserPermission(User user){
+        return user.getLogin().equals(capturUserLogin());
     }
 }
