@@ -23,6 +23,6 @@ public class PhotoAlbum {
     @Column(name = "name_album")
     private String nameAlbum;
 
-    @OneToMany(mappedBy = "photo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "photoAlbum", cascade = CascadeType.ALL)
     private List<Photo> photoList;
 }
