@@ -17,7 +17,13 @@ public class Photo {
 
     private byte[] bytePhoto;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_post", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_post", nullable = true)
     private Post post;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_photos_album", nullable = true)
+    private PhotoAlbum photoAlbum;
 }
+
+
